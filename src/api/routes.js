@@ -1,13 +1,11 @@
 const express = require('express');
 
-const books = require('./components/books/books-route');
-const users = require('./components/users/users-route');
+const characters = require('./components/characters/characters-route');
 
 module.exports = () => {
   const app = express.Router();
 
-  books(app);
-  users(app);
+  characters(app);
 
   return app;
 };
