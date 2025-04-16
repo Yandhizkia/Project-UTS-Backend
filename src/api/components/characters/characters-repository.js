@@ -31,7 +31,13 @@ async function create(
 }
 
 async function getCharacter(id) {
-  return Characters.findOne({ id });
+  return Characters.find(
+    { id },
+    {
+      _id: 0,
+      __v: 0,
+    }
+  );
 }
 
 async function updateCharacter(
