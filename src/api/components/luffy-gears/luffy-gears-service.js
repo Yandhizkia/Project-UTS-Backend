@@ -1,11 +1,11 @@
-const { luffyGears } = require('../../../models');
+const repository = require('./luffy-gears-repository');
 
 async function getGears() {
-  return luffyGears.find({});
+  return repository.find({});
 }
 
 async function getGearById(id) {
-  return luffyGears.find(
+  return repository.find(
     { id },
     {
       id: 0,
@@ -17,7 +17,7 @@ async function getGearById(id) {
 }
 
 async function createGear(id, name, description, countTechniques) {
-  return luffyGears.create({
+  return repository.create({
     id,
     name,
     description,

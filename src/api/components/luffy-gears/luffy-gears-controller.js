@@ -11,7 +11,6 @@ async function getGears(request, response, next) {
   }
 }
 
-// Get a Luffy gear by ID (from body.str)
 async function getGearById(request, response, next) {
   try {
     const { str } = request.body;
@@ -20,7 +19,7 @@ async function getGearById(request, response, next) {
       throw errorResponder(errorTypes.VALIDATION_ERROR, 'str is required');
     }
 
-    const gear = await luffyGearsService.getItem(Number(str));
+    const gear = await luffyGearsService.getGearById(Number(str));
 
     if (!gear) {
       throw errorResponder(errorTypes.UNPROCESSABLE_ENTITY, 'Gear not found');
@@ -45,7 +44,7 @@ async function createGear(request, response, next) {
       throw errorResponder(errorTypes.VALIDATION_ERROR, 'Name is required');
     }
 
-    const existing = await luffyGearsService.getItem(id);
+    const existing = await luffyGearsService.getGearById(id);
     if (existing) {
       throw errorResponder(
         errorTypes.VALIDATION_ERROR,

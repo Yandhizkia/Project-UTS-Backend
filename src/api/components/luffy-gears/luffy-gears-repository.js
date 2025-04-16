@@ -1,4 +1,4 @@
-const { luffyGears } = require('../../../models');
+const { luffyGears } = require('../../../models')['luffyGears'];
 
 async function getGears() {
   return luffyGears.find({});
