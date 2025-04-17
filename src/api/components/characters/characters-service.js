@@ -66,7 +66,7 @@ async function deleteCharacter(id) {
 
 async function nameExists(name) {
   const character = await charactersRepository.getCharacterByName(name);
-  return !!character; // Return true if user exists, false otherwise
+  return !!character;
 }
 
 module.exports = {

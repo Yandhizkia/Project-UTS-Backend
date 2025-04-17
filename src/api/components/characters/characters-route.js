@@ -19,6 +19,6 @@ module.exports = (app) => {
   // Update a character by id
   route.put('/:id', charactersController.updateCharacter);
 
-  // TODO: Delete a character by id
+  // Delete a character by id
   route.delete('/:id', charactersController.deleteCharacter);
 };

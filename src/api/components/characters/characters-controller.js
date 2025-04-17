@@ -85,7 +85,7 @@ async function updateCharacter(request, response, next) {
     const { name, job, size, birthday, age, bounty, status, crew, fruit } =
       request.body;
 
-    // User must exist
+    // Character must exist
     const character = await charactersService.getCharacter(request.params.id);
     if (!character) {
       throw errorResponder(
@@ -94,12 +94,12 @@ async function updateCharacter(request, response, next) {
       );
     }
 
-    // Email is required and cannot be empty
+    // Name is required and cannot be empty
     if (!name) {
       throw errorResponder(errorTypes.VALIDATION_ERROR, 'Name is required');
     }
 
-    // Email must be unique, if it is changed
+    // Name must be unique, if it is changed
     if (name !== character.name && (await charactersService.nameExists(name))) {
       throw errorResponder(
         errorTypes.NAME_ALREADY_TAKEN,
