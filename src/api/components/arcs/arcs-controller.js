@@ -34,7 +34,7 @@ async function createArcs(request, response, next) {
       );
     }
 
-    // Create the arc
+    // Create the arcs
     const success = await arcsService.create(
       id,
       title,
@@ -79,7 +79,7 @@ async function updateArc(request, response, next) {
     const { title, description, saga } =
       request.body;
 
-    // User must exist
+    // Arc must exist
     const arc = await arcsService.getArc(request.params.id);
     if (!arc) {
       throw errorResponder(
