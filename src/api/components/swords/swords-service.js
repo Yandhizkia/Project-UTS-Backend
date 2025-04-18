@@ -50,7 +50,7 @@ async function deleteSword(id) {
 
 async function nameExists(name) {
   const sword = await swordsRepository.getSwordByName(name);
-  return !!sword; // Return true if user exists, false otherwise
+  return !!sword;
 }
 
 module.exports = {
