@@ -33,7 +33,7 @@ async function createDials(request, response, next) {
       );
     }
 
-    // Create the luffy-gears
+    // Create the Dials
     const success = await dialsService.create(name, type);
 
     if (!success) {
