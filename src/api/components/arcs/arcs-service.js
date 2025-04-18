@@ -42,7 +42,7 @@ async function deleteArc(id) {
 
 async function titleExists(title) {
   const arc = await arcsRepository.getArcByTitle(title);
-  return !!arc; // Return true if user exists, false otherwise
+  return !!arc;
 }
 
 module.exports = {
