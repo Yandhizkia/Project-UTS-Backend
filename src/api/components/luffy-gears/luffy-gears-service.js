@@ -1,32 +1,41 @@
-const repository = require('./luffy-gears-repository');
+/* eslint-disable camelcase */
+const luffyGearsRepository = require('./luffy-gears-repository');
 
-async function getGears() {
-  return repository.find({});
+async function getLuffyGears() {
+  return luffyGearsRepository.getLuffyGears();
 }
 
-async function getGearById(id) {
-  return repository.find(
-    { id },
-    {
-      id: 0,
-      name: 0,
-      description: 0,
-      countTechniques: 0,
-    }
-  );
+async function create(id, name, description, count_technique) {
+  return luffyGearsRepository.create(id, name, description, count_technique);
 }
 
-async function createGear(id, name, description, countTechniques) {
-  return repository.create({
+async function getLuffyGear(id) {
+  return luffyGearsRepository.getLuffyGear(id);
+}
+
+async function updateLuffyGear(id, name, description, count_technique) {
+  return luffyGearsRepository.updateLuffyGear(
     id,
     name,
     description,
-    countTechniques,
-  });
+    count_technique
+  );
+}
+
+async function deleteLuffyGear(id) {
+  return luffyGearsRepository.deleteLuffyGear(id);
+}
+
+async function nameExists(name) {
+  const luffyGear = await luffyGearsRepository.getLuffyGearByName(name);
+  return !!luffyGear;
 }
 
 module.exports = {
-  getGears,
-  getGearById,
-  createGear,
+  getLuffyGears,
+  create,
+  getLuffyGear,
+  updateLuffyGear,
+  deleteLuffyGear,
+  nameExists,
 };

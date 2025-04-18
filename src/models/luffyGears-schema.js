@@ -3,8 +3,8 @@ module.exports = (db) =>
     'LuffyGears',
     db.Schema({
       id: Number,
-      Name: String,
-      Description: String,
-      countTechniques: Number,
+      name: String,
+      description: String,
+      count_technique: Number,
     })
   );

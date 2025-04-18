@@ -1,32 +1,50 @@
-const { luffyGears } = require('../../../models')['luffyGears'];
+/* eslint-disable camelcase */
+const { LuffyGears } = require('../../../models');
 
-async function getGears() {
-  return luffyGears.find({});
+async function getLuffyGears() {
+  return LuffyGears.find({});
 }
 
-async function getGearById(id) {
-  return luffyGears.find(
+async function create(id, name, description, count_technique) {
+  return LuffyGears.create({ id, name, description, count_technique });
+}
+
+async function getLuffyGear(id) {
+  return LuffyGears.find(
     { id },
     {
-      id: 0,
-      name: 0,
-      description: 0,
-      countTechniques: 0,
+      _id: 0,
+      __v: 0,
     }
   );
 }
 
-async function createGear(id, name, description, countTechniques) {
-  return luffyGears.create({
-    id,
-    name,
-    description,
-    countTechniques,
-  });
+async function updateLuffyGear(id, name, description, count_technique) {
+  return LuffyGears.updateOne(
+    { id },
+    {
+      $set: {
+        name,
+        description,
+        count_technique,
+      },
+    }
+  );
+}
+
+async function deleteLuffyGear(id) {
+  return LuffyGears.deleteOne({ id });
+}
+
+async function getLuffyGearByName(name) {
+  return LuffyGears.findOne({ name });
 }
 
 module.exports = {
-  getGears,
-  getGearById,
-  createGear,
+  getLuffyGears,
+  create,
+  getLuffyGear,
+  updateLuffyGear,
+  deleteLuffyGear,
+  getLuffyGearByName,
 };

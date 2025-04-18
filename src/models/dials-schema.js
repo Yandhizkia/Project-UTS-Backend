@@ -1,7 +1,8 @@
 module.exports = (db) =>
   db.model(
-    'Books',
+    'Dials',
     db.Schema({
-      title: String,
+      name: String,
+      type: String,
     })
   );
