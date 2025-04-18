@@ -1,4 +1,4 @@
-const Swords  = require('../../../models') ['Swords'];
+const { Swords } = require('../../../models');
 
 async function getSwords() {
   return Swords.find({});
@@ -10,19 +10,58 @@ async function create(
   description,
   type,
   category,
-  isDestroy,
+  isDestroy
 ) {
-  return Swords.create({ 
+  return Swords.create({
     roman_name,
     name,
-    description,
     type,
+    description,
     category,
     isDestroy,
-   });
+  });
+}
+
+async function getSword(id) {
+  return Swords.findById(id);
+}
+
+async function updateSword(
+  roman_name,
+  name,
+  description,
+  type,
+  category,
+  isDestroy
+) {
+  return Swords.updateOne(
+    { _id: id },
+    {
+      $set: {
+        roman_name,
+        name,
+        description,
+        type,
+        category,
+        isDestroy,
+      },
+    }
+  );
+}
+
+async function deleteSword(id) {
+  return Swords.deleteOne({ _id: id });
+}
+
+async function getSwordByName(name) {
+  return Swords.findOne({ name });
 }
 
 module.exports = {
   getSwords,
   create,
+  getSword,
+  updateSword,
+  deleteSword,
+  getSwordByName,
 };

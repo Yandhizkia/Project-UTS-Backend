@@ -13,9 +13,12 @@ module.exports = (app) => {
   // Create a new swords
   route.post('/', swordsController.createSwords);
 
-  // TODO: Get a swords by id
+  // Get a sword by id
+  route.get('/:id', swordsController.getSword);
 
-  // TODO: Update a swords by id
+  // Update a sword by id
+  route.put('/:id', swordsController.updateSword);
 
-  // TODO: Delete a swords by id
+  // TODO: Delete a sword by id
+  route.delete('/:id', swordsController.deleteSword);
 };
