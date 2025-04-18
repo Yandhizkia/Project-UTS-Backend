@@ -29,7 +29,7 @@ async function createSwords(request, response, next) {
       );
     }
 
-    // Create the sword
+    // Create the swords
     const success = await swordsService.create(
       roman_name,
       name,
@@ -76,7 +76,7 @@ async function updateSword(request, response, next) {
     const { roman_name, name, description, type, category, isDestroy } =
       request.body;
 
-    // User must exist
+    // Swords must exist
     const sword = await swordsService.getSword(request.params.id);
     if (!sword) {
       throw errorResponder(
@@ -85,12 +85,12 @@ async function updateSword(request, response, next) {
       );
     }
 
-    // Email is required and cannot be empty
+    // Name is required and cannot be empty
     if (!name) {
       throw errorResponder(errorTypes.VALIDATION_ERROR, 'Name is required');
     }
 
-    // Email must be unique, if it is changed
+    // Name must be unique, if it is changed
     if (name !== sword.name && (await swordsService.nameExists(name))) {
       throw errorResponder(
         errorTypes.NAME_ALREADY_TAKEN,
