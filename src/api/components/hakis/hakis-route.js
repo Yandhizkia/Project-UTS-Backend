@@ -7,15 +7,18 @@ const route = express.Router();
 module.exports = (app) => {
   app.use('/hakis', route);
 
-  // Get list of books
+  // Get list of hakis
   route.get('/', hakisController.getHakis);
 
-  // Create a new book
+  // Create a new hakis
   route.post('/', hakisController.createHakis);
 
-  // TODO: Get a book by id
+  // get a hakis by id
+  route.get('/:id', hakisController.getHaki);
 
-  // TODO: Update a book by id
+  // update a hakis by id
+  route.put('/:id', hakisController.updateHaki);
 
-  // TODO: Delete a book by id
+  // TODO: Delete a haki by id
+  route.delete('/:id', hakisController.deleteHaki);
 };
