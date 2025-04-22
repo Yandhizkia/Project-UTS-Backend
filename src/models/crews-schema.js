@@ -12,3 +12,4 @@ module.exports = (db) =>
       is_yonko: String,
     })
   );
+// commit ulang
