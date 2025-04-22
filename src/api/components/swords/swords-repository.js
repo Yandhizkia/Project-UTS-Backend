@@ -27,6 +27,7 @@ async function getSword(id) {
 }
 
 async function updateSword(
+  id,
   roman_name,
   name,
   description,
