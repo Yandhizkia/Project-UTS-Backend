@@ -13,12 +13,12 @@ module.exports = (app) => {
   // Create a new dials
   route.post('/', dialsController.createDials);
 
-  // Get a dials by name
-  route.get('/:name', dialsController.getDial);
+  // Get a dials by id
+  route.get('/:id', dialsController.getDial);
 
-  // Update a dials by name
-  route.put('/:name', dialsController.updateDial);
+  // Update a dials by id
+  route.put('/:id', dialsController.updateDial);
 
   // Delete a dials by name
-  route.delete('/:name', dialsController.deleteDial);
+  route.delete('/:id', dialsController.deleteDial);
 };
