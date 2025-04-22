@@ -30,4 +30,3 @@ module.exports = (db) =>
       },
     })
   );
-// commit ulang

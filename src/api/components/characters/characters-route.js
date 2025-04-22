@@ -22,4 +22,3 @@ module.exports = (app) => {
   // Delete a character by id
   route.delete('/:id', charactersController.deleteCharacter);
 };
-// commit ulang

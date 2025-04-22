@@ -22,4 +22,3 @@ module.exports = (app) => {
   // TODO: Delete a crew by id
   route.delete('/:id', crewsController.deleteCrew);
 };
-// commit ulang

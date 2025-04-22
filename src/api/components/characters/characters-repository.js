@@ -86,4 +86,3 @@ module.exports = {
   deleteCharacter,
   getCharacterByName,
 };
-// commit ulang
