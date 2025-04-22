@@ -5,20 +5,20 @@ async function getDials() {
   return dialsRepository.getDials();
 }
 
-async function create(name, type) {
-  return dialsRepository.create(name, type);
+async function create(id, name, type) {
+  return dialsRepository.create(id, name, type);
 }
 
-async function getDial(name) {
-  return dialsRepository.getDial(name);
+async function getDial(id) {
+  return dialsRepository.getDial(id);
 }
 
-async function updateDial(name, type) {
-  return dialsRepository.updateDial(name, type);
+async function updateDial(id, name, type) {
+  return dialsRepository.updateDial(id, name, type);
 }
 
-async function deleteDial(name) {
-  return dialsRepository.deleteDial(name);
+async function deleteDial(id) {
+  return dialsRepository.deleteDial(id);
 }
 
 async function nameExists(name) {

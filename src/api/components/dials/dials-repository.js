@@ -5,16 +5,17 @@ async function getDials() {
   return Dials.find({});
 }
 
-async function create(name, type) {
+async function create(id, name, type) {
   return Dials.create({
+    id,
     name,
     type,
   });
 }
 
-async function getDial(name) {
+async function getDial(id) {
   return Dials.find(
-    { name },
+    { id },
     {
       _id: 0,
       __v: 0,
@@ -22,9 +23,9 @@ async function getDial(name) {
   );
 }
 
-async function updateDial(name, type) {
+async function updateDial(id, name, type) {
   return Dials.updateOne(
-    { name },
+    { id },
     {
       $set: {
         name,
@@ -34,8 +35,8 @@ async function updateDial(name, type) {
   );
 }
 
-async function deleteLDial(name) {
-  return Dials.deleteOne({ name });
+async function deleteDial(id) {
+  return Dials.deleteOne({ id });
 }
 
 async function getDialByName(name) {
@@ -47,6 +48,6 @@ module.exports = {
   create,
   getDial,
   updateDial,
-  deleteLDial,
+  deleteDial,
   getDialByName,
 };

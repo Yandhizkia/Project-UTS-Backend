@@ -13,8 +13,12 @@ async function getDials(request, response, next) {
 
 async function createDials(request, response, next) {
   try {
-    const { name, type } = request.body;
+    const { id, name, type } = request.body;
 
+    // id is required and cannot be empty
+    if (!id) {
+      throw errorResponder(errorTypes.VALIDATION_ERROR, 'id is required');
+    }
     // name is required and cannot be empty
     if (!name) {
       throw errorResponder(errorTypes.VALIDATION_ERROR, 'Name is required');
@@ -34,7 +38,7 @@ async function createDials(request, response, next) {
     }
 
     // Create the Dials
-    const success = await dialsService.create(name, type);
+    const success = await dialsService.create(id, name, type);
 
     if (!success) {
       throw errorResponder(
@@ -53,7 +57,7 @@ async function createDials(request, response, next) {
 
 async function getDial(request, response, next) {
   try {
-    const dial = await dialsService.getDial(request.params.name);
+    const dial = await dialsService.getDial(request.params.id);
 
     if (!dial) {
       throw errorResponder(errorTypes.UNPROCESSABLE_ENTITY, 'Dial not found');
@@ -70,14 +74,14 @@ async function updateDial(request, response, next) {
     const { name, type } = request.body;
 
     // Dials must exist
-    const dial = await dialsService.getDial(request.params.name);
+    const dial = await dialsService.getDial(request.params.id);
     if (!dial) {
       throw errorResponder(errorTypes.UNPROCESSABLE_ENTITY, 'Dials not found');
     }
 
     // Name is required and cannot be empty
     if (!name) {
-      throw errorResponder(errorTypes.VALIDATION_ERROR, 'Name is required');
+      throw errorResponder(errorTypes.VALIDATION_ERROR, 'name is required');
     }
 
     // Name must be unique, if it is changed
@@ -89,7 +93,7 @@ async function updateDial(request, response, next) {
     }
 
     const success = await dialsService.updateDial(
-      request.params.name,
+      request.params.id,
       name,
       type
     );
@@ -109,7 +113,7 @@ async function updateDial(request, response, next) {
 
 async function deleteDial(request, response, next) {
   try {
-    const success = await dialsService.deleteDial(request.params.name);
+    const success = await dialsService.deleteDial(request.params.id);
 
     if (!success) {
       throw errorResponder(
