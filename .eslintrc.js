@@ -10,6 +10,6 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   rules: {
-    'prettier/prettier': ['error', { endOfLine: 'auto' }], // agar prettier error nya gak muncul
+    'prettier/prettier': ['error', { endOfLine: 'auto' }], // agar prettier error nya gak muncul
   },
 };
